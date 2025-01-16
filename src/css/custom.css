@@ -1,0 +1,71 @@
+/* custom.css */
+
+.ant-menu {
+  border-radius: 4px; /* Bordes redondeados */
+  background-color: #f0f2f5; /* Cambia el color de fondo del menú */
+}
+
+.selected-subfolder {
+  background-color: rgb(255, 242, 230) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
+}
+
+/* Estilo para el título de las carpetas principales */
+.ant-menu-submenu-title {
+  font-weight: bold; /* Negrita para el título */
+  color: #1890ff; /* Color del texto */
+  padding: 10px 16px; /* Espaciado interno */
+  transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+/* Efecto al pasar el mouse sobre el título */
+.ant-menu-submenu-title:hover {
+  background-color: rgba(0, 132, 255, 0.1); /* Fondo suave al pasar el mouse */
+  border-radius: 4px; /* Bordes redondeados al pasar el mouse */
+}
+
+/* Estilo para los elementos del submenú */
+.ant-menu-item {
+  padding: 10px 16px; /* Espaciado interno */
+  transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+/* Efecto al pasar el mouse sobre los elementos del submenú */
+.ant-menu-item:hover {
+  background-color: rgba(24, 144, 255, 0.1); /* Fondo suave al pasar el mouse */
+}
+
+/* custom.css */
+
+.ant-menu {
+  border-radius: 4px !important; /* Bordes redondeados */
+  background-color: #f0f2f5 !important; /* Cambia el color de fondo del menú */
+}
+
+.selected-subfolder {
+  background-color: rgb(255, 242, 230) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
+}
+
+/* Estilo para el título de las carpetas principales */
+.ant-menu-submenu-title {
+  font-weight: bold !important; /* Negrita para el título */
+  color: #1890ff !important; /* Color del texto */
+  padding: 10px 16px !important; /* Espaciado interno */
+  transition: background-color 0.3s !important; /* Transición suave para el fondo */
+}
+
+/* Efecto al pasar el mouse sobre el título */
+.ant-menu-submenu-title:hover {
+  background-color: rgba(0, 132, 255, 0.1) !important; /* Fondo suave al pasar el mouse */
+  border-radius: 4px !important; /* Bordes redondeados al pasar el mouse */
+}
+
+/* Estilo para los elementos del submenú */
+.ant-menu-item {
+  padding: 10px 16px !important; /* Espaciado interno */
+  transition: background-color 0.3s !important; /* Transición suave para el fondo */
+}
+
+/* Efecto al pasar el mouse sobre los elementos del submenú */
+.ant-menu-item:hover {
+  background-color: rgba(24, 144, 255, 0.1) !important; /* Fondo suave al pasar el mouse */
+}

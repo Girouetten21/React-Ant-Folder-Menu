@@ -1,0 +1,31 @@
+/* CardFolder.css */
+.card-folder {
+    width: 180px; /* Ancho del contenedor */
+    height: 180px; /* Altura del contenedor */
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(48, 53, 58, 0.7);
+    border: 1px solid rgb(158, 158, 158);
+}
+
+.card-folder-background {
+    height: 100%; /* Asegúrate de que el fondo ocupe toda la altura */
+    background-position: center;
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para apilar el ícono y el título */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    color: rgba(32, 32, 32, 0.89); /* Color del texto */
+}
+
+.folder-icon {
+    font-size: 80px; /* Tamaño del ícono */
+    color: rgba(207, 207, 207, 0.89); /* Color del ícono */
+    margin-bottom: 1px; /* Espaciado inferior para separar el ícono del título */
+}
+
+.card-folder-title {
+    font-size: 18px; /* Tamaño de fuente del título */
+    text-align: center; /* Centrar el texto */
+    color: rgba(207, 207, 207, 0.89); /* Color del texto */
+}

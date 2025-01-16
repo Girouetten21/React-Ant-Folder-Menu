@@ -1,0 +1,45 @@
+/* Card.css */
+.card {
+    width: 180px; /* Ancho del contenedor */
+    height: 180px; /* Altura del contenedor */
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgb(158, 158, 158);
+}
+
+.card-background {
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(13, 124, 214, 0.7);
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para apilar el título y el contenido */
+    align-items: flex-start; /* Alinear a la izquierda */
+    justify-content: center;
+    color: rgba(32, 32, 32, 0.89); /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+}
+
+.card-title {
+    color: rgba(32, 32, 32, 0.89);
+    font-size: 20px; /* Tamaño de fuente del título */
+    text-align: center;
+}
+
+.content-card {
+    position: absolute; /* Permite que el contenido se superponga */
+    bottom: 15px; /* Ajusta la posición desde la parte inferior */
+    left: 10px; /* Ajusta la posición desde la izquierda */
+    color: rgba(32, 32, 32, 0.89);
+    font-size: 14px; /* Tamaño de fuente del contenido */
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+.content-card-2 {
+    position: absolute; /* Permite que el contenido se superponga */
+    bottom: 0px; /* Ajusta la posición desde la parte inferior */
+    left: 10px; /* Ajusta la posición desde la izquierda */
+    color: rgba(44, 44, 44, 0.89); /* Color más claro para el segundo contenido */
+    font-size: 12px; /* Tamaño de fuente del contenido adicional */
+    text-align: left; /* Alinear el texto a la izquierda */
+}

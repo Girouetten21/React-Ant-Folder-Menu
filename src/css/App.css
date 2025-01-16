@@ -1,0 +1,73 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+p {
+  color: rgb(56, 56, 56);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #1a1a1a;
+  margin: 2px;
+}
+
+.menu-title {
+  text-align: center;
+  margin: 20px;
+  font-size: 2.2em;
+  line-height: 1.1;
+  color: #1a1a1a;
+}
+
+.menu-container {
+  background-color: #f9f9f9;
+  border-radius: 4px; /* Bordes redondeados */
+  position: fixed; /* Fijar el menú en su posición */
+  height: 100vh; /* Altura completa de la ventana */
+  width: 250px; /* Ancho fijo para el menú */
+  overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
+}
+
+.app-container {
+  display: flex; /* Usar flexbox para dividir la pantalla */
+  height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+}
+
+.content-container {
+  margin-left: 260px; /* Espacio entre el menú y el contenido (ajustado para el ancho del menú) */
+  flex: 1; /* Permite que el contenedor de contenido ocupe el espacio restante */
+  padding: 20px; /* Espaciado interno */
+  background-color: rgb(224, 224, 224); /* Color de fondo para el contenido */
+  border: 1px solid #e8e8e8; /* Borde alrededor del contenido */
+  border-radius: 4px; /* Bordes redondeados */
+  overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
+}
+
+.card-container {
+  display: grid; /* Usar grid para el diseño */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Crear columnas automáticas */
+  gap: 20px 10px; /* Espaciado entre filas y columnas (20px entre filas, 10px entre columnas) */
+  margin-top: 20px; /* Espaciado superior para separar del contenido anterior */
+}
