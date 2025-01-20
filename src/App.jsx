@@ -101,12 +101,27 @@ const contentList = [
 ];
 
 const App = () => {
-  const [selectedContent, setSelectedContent] = useState('Selecciona una carpeta o subcarpeta para ver el contenido.');
+  const [selectedContent, setSelectedContent] = useState('Bienvenido a la página principal.'); // Mensaje por defecto para HOME
   const [currentFolder, setCurrentFolder] = useState(contentList[0]); // Establecer HOME como el contenido seleccionado por defecto
+  const [displayedItems, setDisplayedItems] = useState([]); // Para almacenar los elementos a mostrar en content-container
 
   useEffect(() => {
     if (currentFolder) {
-      setSelectedContent(currentFolder.type === 'home' ? 'Bienvenido a la página principal.' : currentFolder.content || currentFolder.content2 || '');
+      if (currentFolder.type === 'home') {
+        setSelectedContent('Bienvenido a la página principal.');
+        setDisplayedItems(contentList.filter(item => item.type === 'card')); // Mostrar todas las tarjetas
+      } else if (currentFolder.type === 'folder') {
+        if (currentFolder.subfolders && currentFolder.subfolders.length > 0) {
+          setDisplayedItems(currentFolder.subfolders); // Mostrar subcarpetas
+          setSelectedContent(''); // Limpiar el mensaje de contenido
+        } else {
+          setSelectedContent('Carpeta vacía');
+          setDisplayedItems([]); // No hay elementos para mostrar
+        }
+      } else if (currentFolder.type === 'card') {
+        setDisplayedItems([currentFolder]); // Mostrar solo la tarjeta seleccionada
+        setSelectedContent(currentFolder.content || currentFolder.content2 || ''); // Mostrar contenido de la tarjeta
+      }
     }
   }, [currentFolder]);
 
@@ -131,9 +146,15 @@ const App = () => {
         <h1>Contenido</h1>
         <p>{selectedContent}</p>
         <div className="card-container">
-          {contentList.map(item => {
+          {displayedItems.map(item => {
             if (item.type === 'folder') {
-              return <CardFolder key={item.id} title={item.name} />;
+              return (
+                <CardFolder 
+                  key={item.id} 
+                  title={item.name} 
+                  onClick={() => handleFolderSelect(item)} // Agregar el manejador de clics
+                />
+              );
             } else if (item.type === 'card') {
               return (
                 <CustomCard
