@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState, useEffect } from 'react';
 import Menu from './components/Menu';
 import CustomCard from './components/Card';
@@ -10,7 +9,7 @@ const contentList = [
   {
     id: 0,
     type: 'home', // Tipo de contenido para HOME
-    name: 'HOME',
+    name: 'Página Principal',
   },
   {
     id: 1,
@@ -55,6 +54,14 @@ const contentList = [
         id: 32,
         type: 'folder',
         name: 'Subcarpeta 3.2',
+      },
+      {
+        id: 9,
+        type: 'card',
+        name: 'Tarjeta 9',
+        content: 'Contenido Tarjeta 9',
+        content2: 'Subcontenido de la Tarjeta 9',
+        backgroundColor: 'rgba(13, 124, 214, 0.7)',
       },
     ],
   },
@@ -101,45 +108,42 @@ const contentList = [
 ];
 
 const App = () => {
-  const [selectedContent, setSelectedContent] = useState('Bienvenido a la página principal.'); // Mensaje por defecto para HOME
-  const [currentFolder, setCurrentFolder] = useState(contentList[0]); // Establecer HOME como el contenido seleccionado por defecto
-  const [displayedItems, setDisplayedItems] = useState([]); // Para almacenar los elementos a mostrar en content-container
+  const [selectedContent, setSelectedContent] = useState('Bienvenido a la página principal.');
+  const [displayedItems, setDisplayedItems] = useState([]);
+  const [currentFolder, setCurrentFolder] = useState(contentList[0]); // Estado para la carpeta seleccionada
 
   useEffect(() => {
     if (currentFolder) {
       if (currentFolder.type === 'home') {
-        setSelectedContent('Bienvenido a la página principal.');
-        setDisplayedItems(contentList.filter(item => item.type === 'card')); // Mostrar todas las tarjetas
+        setSelectedContent('Bienvenido a la página principal');
+        setDisplayedItems(contentList.filter(item => item.type === 'folder' || item.type === 'card'));
       } else if (currentFolder.type === 'folder') {
         if (currentFolder.subfolders && currentFolder.subfolders.length > 0) {
-          setDisplayedItems(currentFolder.subfolders); // Mostrar subcarpetas
-          setSelectedContent(''); // Limpiar el mensaje de contenido
+          setDisplayedItems(currentFolder.subfolders);
+          setSelectedContent(currentFolder.name);
         } else {
-          setSelectedContent('Carpeta vacía');
-          setDisplayedItems([]); // No hay elementos para mostrar
+          setSelectedContent(currentFolder.name + ' se encuentra vacía');
+          setDisplayedItems([]);
         }
       } else if (currentFolder.type === 'card') {
-        setDisplayedItems([currentFolder]); // Mostrar solo la tarjeta seleccionada
-        setSelectedContent(currentFolder.content || currentFolder.content2 || ''); // Mostrar contenido de la tarjeta
+        setDisplayedItems([currentFolder]);
+        setSelectedContent(currentFolder.content || currentFolder.content2 || '');
       }
     }
   }, [currentFolder]);
 
-  const handleFolderSelect = (folder) => {
-    setCurrentFolder(folder); // Establece la carpeta actual
-  };
-
-  const handleSubfolderSelect = (subfolder) => {
-    setCurrentFolder(subfolder); // Establece la subcarpeta actual
+  const handleSelect = (item) => {
+    // Aplicar el nuevo elemento seleccionado
+    setCurrentFolder(item);
   };
 
   return (
     <div className="app-container">
       <div className="menu-container">
         <Menu 
-          folders={contentList} // Reemplazar folders con contentList
-          onFolderSelect={handleFolderSelect} 
-          onSubfolderSelect={handleSubfolderSelect} 
+          folders={contentList}
+          onFolderSelect={handleSelect} // Usar el manejador unificado
+          currentFolder={currentFolder} // Pasar el objeto de la carpeta actual
         />
       </div>
       <div className="content-container">
@@ -152,7 +156,7 @@ const App = () => {
                 <CardFolder 
                   key={item.id} 
                   title={item.name} 
-                  onClick={() => handleFolderSelect(item)} // Agregar el manejador de clics
+                  onClick={() => handleSelect(item)} // Usar el manejador unificado
                 />
               );
             } else if (item.type === 'card') {
@@ -166,7 +170,7 @@ const App = () => {
                 />
               );
             }
-            return null; // En caso de que no sea ni folder ni card
+            return null;
           })}
         </div>
       </div>
