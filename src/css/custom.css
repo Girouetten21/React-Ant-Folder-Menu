@@ -4,6 +4,7 @@
   background-color: #f0f2f5 !important; /* Cambia el color de fondo del menú */
 }
 
+/* Estilo aplicado a la carpeta seleccionada actualmente */
 .selected-folder {
   background-color: rgb(202, 219, 255) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
 }
@@ -12,8 +13,22 @@
 .ant-menu-submenu-title {
   font-weight: bold !important; /* Negrita para el título */
   color: #1890ff !important; /* Color del texto */
-  padding: 10px 16px !important; /* Espaciado interno */
   transition: background-color 0.3s !important; /* Transición suave para el fondo */
+}
+
+/* Estilo para los elementos del submenú que están anidados */
+.ant-menu-submenu > .ant-menu-item {
+  padding-left: 32px !important; /* Desplazar a la derecha los elementos del submenú */
+}
+
+/* Estilo para los elementos del submenú de segundo nivel */
+.ant-menu-submenu-open > .ant-menu-item {
+  padding-left: 48px !important; /* Desplazar aún más a la derecha los elementos del submenú de segundo nivel */
+}
+
+/* Estilo para los elementos del submenú de tercer nivel */
+.ant-menu-submenu-open > .ant-menu-submenu > .ant-menu-item {
+  padding-left: 64px !important; /* Desplazar aún más a la derecha los elementos del submenú de tercer nivel */
 }
 
 /* Efecto al pasar el mouse sobre el título */
@@ -37,4 +52,24 @@
 .ant-menu-item.ant-menu-item-selected {
   background-color: transparent !important; /* Anular el fondo predeterminado */
   color: inherit !important; /* Mantener el color del texto */
+}
+
+/* Estilo para aplicar padding a los elementos de carpeta */
+.ant-menu-item {
+  color: #1890ff !important;
+  font-weight: bold !important; 
+  padding-left: 16px !important; /* Padding base para todos los items */
+}
+
+/* Estilo para aplicar padding adicional basado en el nivel */
+.ant-menu-item.level-1 {
+  padding-left: 32px !important; /* Padding para el primer nivel */
+}
+
+.ant-menu-item.level-2 {
+  padding-left: 48px !important; /* Padding para el segundo nivel */
+}
+
+.ant-menu-item.level-3 {
+  padding-left: 64px !important; /* Padding para el tercer nivel */
 }
