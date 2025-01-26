@@ -46,8 +46,7 @@ h1 {
   border-radius: 4px; /* Bordes redondeados */
   position: fixed; /* Fijar el menú en su posición */
   height: 100vh; /* Altura completa de la ventana */
-  width: 250px; /* Ancho fijo para el menú */
-  overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
+  width: auto; /* Ancho fijo para el menú */
 }
 
 .app-container {
