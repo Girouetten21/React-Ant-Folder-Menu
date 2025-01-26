@@ -1,27 +1,24 @@
 import React, { useState } from 'react';
 import { Menu as AntMenu } from 'antd';
 import '../css/App.css'; // Asegúrate de que la ruta sea correcta
-import '../css/custom.css'; // Asegúrate de que la ruta sea correcta
+import '../css/customAntd.css'; // Asegúrate de que la ruta sea correcta
 
 const Menu = ({ folders, onFolderSelect, currentFolder }) => {
-  // Crear un array de keys seleccionados
   const selectedKeys = [currentFolder.id];
-  
-  // Estado para controlar qué submenú está expandido
   const [openKeys, setOpenKeys] = useState([]);
 
-  // Manejar la apertura y cierre de submenús
   const onOpenChange = (keys) => {
     setOpenKeys(keys);
   };
 
-  // Función recursiva para renderizar carpetas y subcarpetas
-  const renderFolders = (folderList, level = 0) => {
+  const renderFolders = (folderList, level = 1) => {
     return folderList.map(folder => {
       if (folder.type === 'folder') {
-        const hasSubfolders = folder.subfolders && folder.subfolders.some(sub => sub.type === 'folder');
-  
+        const subfolders = folder.subfolders || [];
+        const hasSubfolders = subfolders.some(sub => sub.type === 'folder');
+
         if (hasSubfolders) {
+          // Renderizar como un SubMenu si tiene subcarpetas
           return (
             <AntMenu.SubMenu 
               key={folder.id} 
@@ -32,23 +29,24 @@ const Menu = ({ folders, onFolderSelect, currentFolder }) => {
                 </span>
               }
             >
-              {renderFolders(folder.subfolders, level + 1)} 
+              {renderFolders(subfolders, level + 1)} 
             </AntMenu.SubMenu>
           );
         } else {
-          // Renderizar como un item normal pero con la clase de nivel
+          // Renderizar como un item normal si no tiene subcarpetas
           return (
             <AntMenu.Item 
               key={folder.id} 
               onClick={() => onFolderSelect(folder)} 
-              className={`${currentFolder.id === folder.id ? 'selected-folder' : ''} level-${level}`} // Aplicar clase de nivel
-              style={{ paddingLeft: `${(level + 1) * 16}px` }} // Aplicar padding en función del nivel
+              className={`${currentFolder.id === folder.id ? 'selected-folder' : ''} level-${level}`} 
+              style={{ paddingLeft: `${level * 16}px` }} // Ajustar el padding para el nivel
             >
               {folder.name}
             </AntMenu.Item>
           );
         }
       }
+      // Ignorar elementos de tipo 'card'
       return null; 
     });
   };
@@ -59,18 +57,18 @@ const Menu = ({ folders, onFolderSelect, currentFolder }) => {
       <AntMenu
         mode="inline"
         style={{ width: 256 }}
-        selectedKeys={selectedKeys} // Usar selectedKeys para controlar la selección
-        openKeys={openKeys} // Controlar qué submenús están abiertos
-        onOpenChange={onOpenChange} // Manejar el cambio de apertura
+        selectedKeys={selectedKeys}
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
       >
         <AntMenu.Item 
           key={0} 
           onClick={() => onFolderSelect(folders[0])}
-          className={currentFolder.id === 0 ? 'selected-folder' : ''} // Aplicar clase si es HOME
+          className={currentFolder.id === 0 ? 'selected-folder' : ''}
         >
           <span>Página Principal</span>
         </AntMenu.Item>
-        {renderFolders(folders)} {/* Llamada a la función recursiva */}
+        {renderFolders(folders)}
       </AntMenu>
     </div>
   );

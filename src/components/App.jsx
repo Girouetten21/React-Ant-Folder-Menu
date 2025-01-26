@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import Menu from './components/Menu';
-import CustomCard from './components/Card';
-import CardFolder from './components/CardFolder';
-import './css/App.css';
-import './css/custom.css';
-import contentMenu from './data/contentMenu'; // Importar el contenido desde el nuevo archivo
+import Menu from './Menu';
+import Card from './Card';
+import FolderCard from './FolderCard';
+import DataMenu from '../data/DataMenu';
+import '../css/App.css';
+import '../css/customAntd.css';
 
 const App = () => {
   const [selectedContent, setSelectedContent] = useState('Bienvenido a la página principal.');
   const [displayedItems, setDisplayedItems] = useState([]);
-  const [currentFolder, setCurrentFolder] = useState(contentMenu[0]); // Estado para la carpeta seleccionada
+  const [currentFolder, setCurrentFolder] = useState(DataMenu[0]); // Estado para la carpeta seleccionada
 
   useEffect(() => {
     if (currentFolder) {
       if (currentFolder.type === 'home') {
         setSelectedContent('Bienvenido a la página principal');
-        setDisplayedItems(contentMenu.filter(item => item.type === 'folder' || item.type === 'card'));
+        setDisplayedItems(DataMenu.filter(item => item.type === 'folder' || item.type === 'card'));
       } else if (currentFolder.type === 'folder') {
         if (currentFolder.subfolders && currentFolder.subfolders.length > 0) {
           setDisplayedItems(currentFolder.subfolders);
@@ -51,7 +51,7 @@ const App = () => {
     <div className="app-container">
       <div className="menu-container">
         <Menu 
-          folders={contentMenu} // Usar el contenido importado
+          folders={DataMenu} // Usar el contenido importado
           onFolderSelect={handleSelect} // Usar el manejador unificado
           currentFolder={currentFolder} // Pasar el objeto de la carpeta actual
         />
@@ -66,7 +66,7 @@ const App = () => {
 
             if (item.type === 'folder') {
               return (
-                <CardFolder 
+                <FolderCard 
                   key={item.id} 
                   title={item.name} 
                   onClick={() => handleSelect(item)} // Usar el manejador unificado
@@ -75,7 +75,7 @@ const App = () => {
               );
             } else if (item.type === 'card') {
               return (
-                <CustomCard
+                <Card
                   key={item.id}
                   title={item.name}
                   content={item.content}
