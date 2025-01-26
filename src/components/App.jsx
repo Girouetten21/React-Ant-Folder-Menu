@@ -5,31 +5,52 @@ import FolderCard from './FolderCard';
 import DataMenu from '../data/DataMenu';
 import '../css/App.css';
 import '../css/customAntd.css';
+import { Skeleton } from 'antd'; // Importar Skeleton de Ant Design
 
 const App = () => {
-  const [selectedContent, setSelectedContent] = useState('Bienvenido a la página principal.');
+  const [selectedContent, setSelectedContent] = useState(''); // Inicialmente vacío
   const [displayedItems, setDisplayedItems] = useState([]);
   const [currentFolder, setCurrentFolder] = useState(DataMenu[0]); // Estado para la carpeta seleccionada
+  const [loading, setLoading] = useState(true); // Estado para controlar la carga
 
   useEffect(() => {
-    if (currentFolder) {
-      if (currentFolder.type === 'home') {
-        setSelectedContent('Bienvenido a la página principal');
-        setDisplayedItems(DataMenu.filter(item => item.type === 'folder' || item.type === 'card'));
-      } else if (currentFolder.type === 'folder') {
-        if (currentFolder.subfolders && currentFolder.subfolders.length > 0) {
-          setDisplayedItems(currentFolder.subfolders);
-          setSelectedContent(currentFolder.name);
-        } else {
-          setSelectedContent(currentFolder.name + ' se encuentra vacía');
-          setDisplayedItems([]);
-        }
-      } else if (currentFolder.type === 'card') {
-        setDisplayedItems([currentFolder]);
-        setSelectedContent(currentFolder.content || currentFolder.content2 || '');
+    // Simular carga de datos
+    const timer = setTimeout(() => {
+      setLoading(false); // Cambiar a no cargando después de 5 segundos
+    }, 5000);
+
+    return () => clearTimeout(timer); // Limpiar el timer al desmontar
+  }, []);
+
+  useEffect(() => {
+    if (loading) {
+      setSelectedContent(''); // Cuando está cargando, establecer como vacío
+    } else {
+      // Cuando no está cargando
+      if (currentFolder) {
+        const { type, name, subfolders } = currentFolder;
+
+        // Mapeo de tipos de carpetas
+        const contentMap = {
+          home: () => {
+            setSelectedContent('Bienvenido a la página principal');
+            setDisplayedItems(DataMenu.filter(item => item.type === 'folder' || item.type === 'card'));
+          },
+          folder: () => {
+            setDisplayedItems(subfolders || []);
+            setSelectedContent(subfolders && subfolders.length > 0 ? name : `${name} se encuentra vacía`);
+          },
+          card: () => {
+            setDisplayedItems([currentFolder]);
+            setSelectedContent(currentFolder.content || currentFolder.content2 || '');
+          },
+        };
+
+        // Ejecutar la función correspondiente según el tipo
+        contentMap[type]?.();
       }
     }
-  }, [currentFolder]);
+  }, [currentFolder, loading]); // Agregar loading como dependencia
 
   const handleSelect = (item) => {
     // Aplicar el nuevo elemento seleccionado
@@ -60,34 +81,49 @@ const App = () => {
         <h1>Contenido</h1>
         <p>{selectedContent}</p>
         <div className="card-container">
-          {displayedItems.map(item => {
-            const level = getNestedLevel(item); // Obtener el nivel de anidación
-            const paddingLeft = `${(level + 1) * 16}px`; // Calcular el padding
+          {loading ? (
+            // Mostrar Skeleton que se asemeje a una Card
+            <>
+              <Skeleton active className="skeleton-card" />
+              <Skeleton active className="skeleton-card" />
+              <Skeleton active className="skeleton-card" />
+              <Skeleton active className="skeleton-card" />
+              <Skeleton active className="skeleton-card" />
+              <Skeleton active className="skeleton-card" />
+              <Skeleton active className="skeleton-card" />
+              <Skeleton active className="skeleton-card" />
+              <Skeleton active className="skeleton-card" />
+            </>
+          ) : (
+            displayedItems.map(item => {
+              const level = getNestedLevel(item); // Obtener el nivel de anidación
+              const paddingLeft = `${(level + 1) * 16}px`; // Calcular el padding
 
-            if (item.type === 'folder') {
-              return (
-                <FolderCard 
-                  key={item.id} 
-                  title={item.name} 
-                  onClick={() => handleSelect(item)} // Usar el manejador unificado
-                  style={{ paddingLeft }} // Aplicar padding
-                />
-              );
-            } else if (item.type === 'card') {
-              return (
-                <Card
-                  key={item.id}
-                  title={item.name}
-                  content={item.content}
-                  content2={item.content2}
-                  backgroundColor={item.backgroundColor}
-                  click={item.click}
-                  style={{ paddingLeft }} // Aplicar padding
-                />
-              );
-            }
-            return null;
-          })}
+              if (item.type === 'folder') {
+                return (
+                  <FolderCard 
+                    key={item.id} 
+                    title={item.name} 
+                    onClick={() => handleSelect(item)}
+                    style={{ paddingLeft }} 
+                  />
+                );
+              } else if (item.type === 'card') {
+                return (
+                  <Card
+                    key={item.id}
+                    title={item.name}
+                    content={item.content}
+                    content2={item.content2}
+                    backgroundColor={item.backgroundColor}
+                    click={item.click}
+                    style={{ paddingLeft }}
+                  />
+                );
+              }
+              return null;
+            })
+          )}
         </div>
       </div>
     </div>

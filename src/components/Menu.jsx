@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
-import { Menu as AntMenu } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Menu as AntMenu, Skeleton } from 'antd'; // Importar Skeleton de Ant Design
 import '../css/App.css'; // Asegúrate de que la ruta sea correcta
 import '../css/customAntd.css'; // Asegúrate de que la ruta sea correcta
 
 const Menu = ({ folders, onFolderSelect, currentFolder }) => {
   const selectedKeys = [currentFolder.id];
   const [openKeys, setOpenKeys] = useState([]);
+  const [loading, setLoading] = useState(true); // Estado para controlar la carga
+
+  useEffect(() => {
+    // Simular carga de datos
+    const timer = setTimeout(() => {
+      setLoading(false); // Cambiar a no cargando después de 5 segundos
+    }, 5000);
+
+    return () => clearTimeout(timer); // Limpiar el timer al desmontar
+  }, []);
 
   const onOpenChange = (keys) => {
     setOpenKeys(keys);
@@ -61,14 +71,25 @@ const Menu = ({ folders, onFolderSelect, currentFolder }) => {
         openKeys={openKeys}
         onOpenChange={onOpenChange}
       >
-        <AntMenu.Item 
-          key={0} 
-          onClick={() => onFolderSelect(folders[0])}
-          className={currentFolder.id === 0 ? 'selected-folder' : ''}
-        >
-          <span>Página Principal</span>
-        </AntMenu.Item>
-        {renderFolders(folders)}
+        {loading ? (
+          // Mostrar Skeleton mientras se carga
+          <>
+            <Skeleton active paragraph={{ rows: 5 }} style={{ margin: '0 16px', width: '200px'  }} />
+            <Skeleton active paragraph={{ rows: 5 }} style={{ margin: '0 16px', width: '200px'  }} />
+            <Skeleton active paragraph={{ rows: 5 }} style={{ margin: '0 16px', width: '200px'  }} />
+          </>
+        ) : (
+          <>
+            <AntMenu.Item 
+              key={0} 
+              onClick={() => onFolderSelect(folders[0])}
+              className={currentFolder.id === 0 ? 'selected-folder' : ''}
+            >
+              <span>Página Principal</span>
+            </AntMenu.Item>
+            {renderFolders(folders)}
+          </>
+        )}
       </AntMenu>
     </div>
   );
