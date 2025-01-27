@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Skeleton } from 'antd';
 import Menu from './Menu';
 import Card from './Card';
 import FolderCard from './FolderCard';
 import DataMenu from '../data/DataMenu';
 import '../css/App.css';
 import '../css/customAntd.css';
-import { Skeleton } from 'antd'; // Importar Skeleton de Ant Design
 
 const App = () => {
   const [selectedContent, setSelectedContent] = useState(''); // Inicialmente vacío
@@ -17,7 +17,7 @@ const App = () => {
     // Simular carga de datos
     const timer = setTimeout(() => {
       setLoading(false); // Cambiar a no cargando después de 5 segundos
-    }, 5000);
+    }, 1000);
 
     return () => clearTimeout(timer); // Limpiar el timer al desmontar
   }, []);

@@ -5,6 +5,7 @@ import { FolderOutlined } from '@ant-design/icons'; // Importar el ícono de car
 import '../css/FolderCard.css';
 
 const FolderCard = ({ title, onClick }) => {
+    
     return (
         <Card className="card-folder" onClick={onClick}>
             <div className="card-folder-background">

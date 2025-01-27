@@ -63,7 +63,7 @@
 
 /* Estilo para aplicar padding adicional basado en el nivel */
 .ant-menu-item.level-1 {
-  padding-left: 32px !important; /* Padding para el primer nivel */
+  padding-left: 24px !important; /* Padding para el primer nivel */
 }
 
 .ant-menu-item.level-2 {
@@ -71,5 +71,5 @@
 }
 
 .ant-menu-item.level-3 {
-  padding-left: 64px !important; /* Padding para el tercer nivel */
+  padding-left: 72px !important; /* Padding para el tercer nivel */
 }
