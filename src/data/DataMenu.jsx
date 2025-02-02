@@ -1,3 +1,19 @@
+import { FolderOutlined, FolderOpenOutlined, VideoCameraOutlined, DatabaseOutlined, ApiOutlined, ToolOutlined, CloudUploadOutlined } from '@ant-design/icons';
+
+export const categories = [
+  { id: 0, name: '#Framework', icon: <FolderOpenOutlined /> },
+  { id: 1, name: '#Backend', icon: <FolderOutlined /> },
+  { id: 2, name: '#Frontend', icon: <FolderOutlined /> },
+  { id: 3, name: '#DevOps', icon: <ToolOutlined /> },
+  { id: 4, name: '#Database', icon: <DatabaseOutlined /> },
+  { id: 5, name: '#UI Framework', icon: <FolderOpenOutlined /> },
+  { id: 6, name: '#API Testing', icon: <ApiOutlined /> },
+  { id: 7, name: '#Hosting', icon: <CloudUploadOutlined /> },
+  { id: 8, name: '#Development', icon: <ToolOutlined /> },
+  { id: 9, name: '#Search Engine', icon: <FolderOutlined /> },
+  { id: 10, name: '#Video', icon: <VideoCameraOutlined /> },
+];
+
 const DataMenu = [
   {
     id: 0,
@@ -24,7 +40,7 @@ const DataMenu = [
                 type: 'card',
                 name: 'React',
                 content: 'Biblioteca para construir interfaces de usuario.',
-                content2: 'Aprende más sobre React.',
+                category: categories[0].name, // #Framework
                 backgroundColor: 'rgba(97, 218, 251, 0.7)',
                 click: 'https://reactjs.org/',
               },
@@ -33,7 +49,7 @@ const DataMenu = [
                 type: 'card',
                 name: 'Vue',
                 content: 'Framework progresivo para construir interfaces.',
-                content2: 'Aprende más sobre Vue.',
+                category: categories[0].name, // #Framework
                 backgroundColor: 'rgba(65, 184, 131, 0.7)',
                 click: 'https://vuejs.org/',
               },
@@ -44,7 +60,7 @@ const DataMenu = [
             type: 'card',
             name: 'Ant Design',
             content: 'Framework de diseño para React.',
-            content2: 'Aprende más sobre Ant Design.',
+            category: categories[6].name, // #UI Framework
             backgroundColor: 'rgba(24, 144, 255, 0.7)',
             click: 'https://ant.design/',
           },
@@ -60,7 +76,7 @@ const DataMenu = [
             type: 'card',
             name: 'Node.js',
             content: 'JavaScript runtime para construir aplicaciones.',
-            content2: 'Aprende más sobre Node.js.',
+            category: categories[1].name, // #Backend
             backgroundColor: 'rgba(0, 255, 0, 0.7)',
             click: 'https://nodejs.org/',
           },
@@ -69,7 +85,7 @@ const DataMenu = [
             type: 'card',
             name: 'Laravel',
             content: 'Framework PHP para aplicaciones web.',
-            content2: 'Aprende más sobre Laravel.',
+            category: categories[1].name, // #Backend
             backgroundColor: 'rgba(255, 0, 0, 0.7)',
             click: 'https://laravel.com/',
           },
@@ -92,7 +108,7 @@ const DataMenu = [
             type: 'card',
             name: 'Docker',
             content: 'Plataforma para desarrollar, enviar y ejecutar aplicaciones.',
-            content2: 'Aprende más sobre Docker.',
+            category: categories[3].name, // #DevOps
             backgroundColor: 'rgba(0, 123, 255, 0.7)',
             click: 'https://www.docker.com/',
           },
@@ -108,7 +124,7 @@ const DataMenu = [
             type: 'card',
             name: 'Vercel',
             content: 'Plataforma para desplegar aplicaciones frontend.',
-            content2: 'Aprende más sobre Vercel.',
+            category: categories[8].name, // #Hosting
             backgroundColor: 'rgba(255, 0, 255, 0.7)',
             click: 'https://vercel.com/',
           },
@@ -117,7 +133,7 @@ const DataMenu = [
             type: 'card',
             name: 'Netlify',
             content: 'Plataforma para desplegar sitios estáticos.',
-            content2: 'Aprende más sobre Netlify.',
+            category: categories[8].name, // #Hosting
             backgroundColor: 'rgba(0, 255, 255, 0.7)',
             click: 'https://www.netlify.com/',
           },
@@ -135,7 +151,7 @@ const DataMenu = [
         type: 'card',
         name: 'PostgreSQL',
         content: 'Sistema de gestión de bases de datos relacional.',
-        content2: 'Aprende más sobre PostgreSQL.',
+        category: categories[5].name, // #Database
         backgroundColor: 'rgba(255, 215, 0, 0.7)',
         click: 'https://www.postgresql.org/',
       },
@@ -144,7 +160,7 @@ const DataMenu = [
         type: 'card',
         name: 'MongoDB',
         content: 'Base de datos NoSQL orientada a documentos.',
-        content2: 'Aprende más sobre MongoDB.',
+        category: categories[5].name, // #Database
         backgroundColor: 'rgba(0, 255, 0, 0.7)',
         click: 'https://www.mongodb.com/',
       },
@@ -160,7 +176,7 @@ const DataMenu = [
         type: 'card',
         name: 'Vite',
         content: 'Herramienta de construcción para proyectos web.',
-        content2: 'Aprende más sobre Vite.',
+        category: categories[9].name, // #Build Tool
         backgroundColor: 'rgba(255, 0, 0, 0.7)',
         click: 'https://vitejs.dev/',
       },
@@ -169,7 +185,7 @@ const DataMenu = [
         type: 'card',
         name: 'CodePen',
         content: 'Entorno de desarrollo social para front-end.',
-        content2: 'Aprende más sobre CodePen.',
+        category: categories[9].name, // #Development
         backgroundColor: 'rgba(0, 0, 255, 0.7)',
         click: 'https://codepen.io/',
       },
@@ -185,7 +201,7 @@ const DataMenu = [
         type: 'card',
         name: 'GitHub',
         content: 'Plataforma de desarrollo colaborativo.',
-        content2: 'Aprende más sobre GitHub.',
+        category: categories[7].name, // #Version Control
         backgroundColor: 'rgba(255, 215, 0, 0.7)',
         click: 'https://github.com/',
       },
@@ -194,7 +210,7 @@ const DataMenu = [
         type: 'card',
         name: 'YouTube',
         content: 'Plataforma de videos educativos y tutoriales.',
-        content2: 'Aprende más sobre YouTube.',
+        category: categories[10].name, // #Video
         backgroundColor: 'rgba(255, 0, 0, 0.7)',
         click: 'https://www.youtube.com/',
       },
@@ -203,7 +219,7 @@ const DataMenu = [
         type: 'card',
         name: 'Google',
         content: 'Motor de búsqueda más utilizado.',
-        content2: 'Aprende más sobre Google.',
+        category: categories[10].name, // #Search Engine
         backgroundColor: 'rgba(255, 215, 0, 0.7)',
         click: 'https://www.google.com/',
       },
@@ -212,7 +228,7 @@ const DataMenu = [
         type: 'card',
         name: 'Next.js',
         content: 'Framework para aplicaciones React.',
-        content2: 'Aprende más sobre Next.js.',
+        category: categories[0].name, // #Framework
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
         click: 'https://nextjs.org/',
       },
@@ -221,7 +237,7 @@ const DataMenu = [
         type: 'card',
         name: 'Docker',
         content: 'Plataforma para desarrollar, enviar y ejecutar aplicaciones.',
-        content2: 'Aprende más sobre Docker.',
+        category: categories[4].name, // #DevOps
         backgroundColor: 'rgba(0, 123, 255, 0.7)',
         click: 'https://www.docker.com/',
       },
@@ -230,7 +246,7 @@ const DataMenu = [
         type: 'card',
         name: 'Flask',
         content: 'Microframework para Python.',
-        content2: 'Aprende más sobre Flask.',
+        category: categories[0].name, // #Framework
         backgroundColor: 'rgba(255, 215, 0, 0.7)',
         click: 'https://flask.palletsprojects.com/',
       },
@@ -239,7 +255,7 @@ const DataMenu = [
         type: 'card',
         name: 'Django',
         content: 'Framework web para Python.',
-        content2: 'Aprende más sobre Django.',
+        category: categories[0].name, // #Framework
         backgroundColor: 'rgba(0, 0, 255, 0.7)',
         click: 'https://www.djangoproject.com/',
       },
@@ -248,7 +264,7 @@ const DataMenu = [
         type: 'card',
         name: 'Svelte',
         content: 'Framework para construir interfaces de usuario.',
-        content2: 'Aprende más sobre Svelte.',
+        category: categories[0].name, // #Framework
         backgroundColor: 'rgba(255, 0, 255, 0.7)',
         click: 'https://svelte.dev/',
       },
@@ -257,7 +273,7 @@ const DataMenu = [
         type: 'card',
         name: 'Postman',
         content: 'Herramienta para probar APIs.',
-        content2: 'Aprende más sobre Postman.',
+        category: categories[7].name, // #API Testing
         backgroundColor: 'rgba(0, 255, 0, 0.7)',
         click: 'https://www.postman.com/',
       },
@@ -268,7 +284,7 @@ const DataMenu = [
         type: 'card',
         name: 'Marcos-PC',
         content: 'Frontend - UI',
-        content2: 'Programming is a very beautiful thing.',
+        category: categories[5].name,
         backgroundColor: 'rgba(40, 224, 224, 0.63)',
         click: 'https://github.com/Girouetten21',
   }

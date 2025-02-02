@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu as AntMenu, Skeleton } from 'antd'; // Importar Skeleton de Ant Design
-import { FolderOutlined, FolderOpenOutlined } from '@ant-design/icons'; // Importar íconos de carpeta
-import '../css/App.css'; // Asegúrate de que la ruta sea correcta
+import DataMenu, { categories } from '../data/DataMenu.jsx'; // Importar DataMenu y categories
+import UserProfile from './UserProfile.jsx';
+import { FolderOutlined, FolderOpenOutlined } from '@ant-design/icons'; // Importar íconos necesarios
+import '../css/Menu.css'; // Asegúrate de que la ruta sea correcta
 import '../css/customAntd.css'; // Asegúrate de que la ruta sea correcta
 
-const Menu = ({ folders, onFolderSelect, currentFolder }) => {
+const Menu = ({ folders, onFolderSelect, currentFolder, onCategorySelect }) => {
   const selectedKeys = [currentFolder.id];
   const [openKeys, setOpenKeys] = useState([]);
   const [loading, setLoading] = useState(true); // Estado para controlar la carga
@@ -55,7 +57,7 @@ const Menu = ({ folders, onFolderSelect, currentFolder }) => {
               className={`${isSelected ? 'selected-folder' : ''} level-${level}`} 
               style={{ paddingLeft: `${level * 16}px` }} // Ajustar el padding para el nivel
             >
-              {isSelected ? <FolderOpenOutlined style={{ marginRight: '8px' }} /> : <FolderOutlined style={{ marginRight: '8px' }} />}
+                            {isSelected ? <FolderOpenOutlined style={{ marginRight: '8px' }} /> : <FolderOutlined style={{ marginRight: '8px' }} />}
               {folder.name}
             </AntMenu.Item>
           );
@@ -68,7 +70,7 @@ const Menu = ({ folders, onFolderSelect, currentFolder }) => {
 
   return (
     <div className='menu-container'>
-      <h2 className="menu-title">MENU</h2>
+        <UserProfile name="John Doe" username="johndoe" imageUrl="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&ixid=M3w2MTg1MTN8MHwxfHNlYXJjaHwxfHx1c2VyLWF2YXRhcnxlbnwwfDJ8fHwxNzM4MDI5OTk5fDA&ixlib=rb-4.0.3&q=80&w=150&h=150"/>
       <AntMenu
         mode="inline"
         style={{ width: 256 }}
@@ -79,9 +81,9 @@ const Menu = ({ folders, onFolderSelect, currentFolder }) => {
         {loading ? (
           // Mostrar Skeleton mientras se carga
           <>
-            <Skeleton active paragraph={{ rows: 5 }} style={{ margin: '0 16px', width: '200px'  }} />
-            <Skeleton active paragraph={{ rows: 5 }} style={{ margin: '0 16px', width: '200px'  }} />
-            <Skeleton active paragraph={{ rows: 5 }} style={{ margin: '0 16px', width: '200px'  }} />
+            <Skeleton active paragraph={{ rows: 5 }} style={{ margin: '0 16px', width: '200px' }} />
+            <Skeleton active paragraph={{ rows: 5 }} style={{ margin: '0 16px', width: '200px' }} />
+            <Skeleton active paragraph={{ rows: 5 }} style={{ margin: '0 16px', width: '200px' }} />
           </>
         ) : (
           <>
@@ -96,6 +98,21 @@ const Menu = ({ folders, onFolderSelect, currentFolder }) => {
           </>
         )}
       </AntMenu>
+      <div className="categories-container">
+        <h3 className="categories-title">Categorías</h3>
+        <div>
+          {categories.map(category => (
+            <div 
+              key={category.id} 
+              className="category-item" 
+              onClick={() => onCategorySelect(category)} // Llamar al manejador al hacer clic
+            >
+              <span className="category-icon">{category.icon}</span>
+              <span className="category-text">{category.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

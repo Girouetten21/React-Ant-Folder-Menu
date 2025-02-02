@@ -1,34 +1,25 @@
 /* custom.css */
 .ant-menu {
-  border-radius: 4px !important; /* Bordes redondeados */
   background-color: #f0f2f5 !important; /* Cambia el color de fondo del menú */
+  width: 275px !important; /* Establece un ancho fijo para el menú */
+  min-width: 275px !important; /* Establece un ancho mínimo para el menú */
 }
 
 /* Estilo aplicado a la carpeta seleccionada actualmente */
 .selected-folder {
-  background-color: rgb(202, 219, 255) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
+  background-color: rgb(255, 60, 0) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
 }
 
 /* Estilo para el título de las carpetas principales */
 .ant-menu-submenu-title {
-  font-weight: bold !important; /* Negrita para el título */
-  color: #1890ff !important; /* Color del texto */
+  font-size: 1.2em; /* Tamaño de fuente para el título */
+  color: rgb(0, 0, 0) !important; /* Color del texto */
   transition: background-color 0.3s !important; /* Transición suave para el fondo */
+  min-height: 40px; /* Asegura que el título tenga un tamaño mínimo */
 }
 
-/* Estilo para los elementos del submenú que están anidados */
-.ant-menu-submenu > .ant-menu-item {
-  padding-left: 32px !important; /* Desplazar a la derecha los elementos del submenú */
-}
-
-/* Estilo para los elementos del submenú de segundo nivel */
-.ant-menu-submenu-open > .ant-menu-item {
-  padding-left: 48px !important; /* Desplazar aún más a la derecha los elementos del submenú de segundo nivel */
-}
-
-/* Estilo para los elementos del submenú de tercer nivel */
-.ant-menu-submenu-open > .ant-menu-submenu > .ant-menu-item {
-  padding-left: 64px !important; /* Desplazar aún más a la derecha los elementos del submenú de tercer nivel */
+.ant-menu-title-content{
+  padding-left: 0px !important; /* Padding base para todos los items */
 }
 
 /* Efecto al pasar el mouse sobre el título */
@@ -37,10 +28,21 @@
   border-radius: 4px !important; /* Bordes redondeados al pasar el mouse */
 }
 
+.ant-menu-submenu {
+  width: 270px !important; /* Establece un ancho fijo para el menú */
+  min-width: 270px !important; /* Establece un ancho mínimo para el menú */
+  background-color: rgb(30, 255, 0) !important; /* Color de fondo del submenú */
+}
+
 /* Estilo para los elementos del submenú */
 .ant-menu-item {
-  padding: 10px 16px !important; /* Espaciado interno */
+  font-size: 1.2em; /* Tamaño de fuente para el título */
+  background-color: rgb(0, 132, 255) !important; /* Color de fondo de los elementos del menú */
+  padding: 8px 12px !important; /* Espaciado interno */
   transition: background-color 0.3s !important; /* Transición suave para el fondo */
+  color: rgb(0, 0, 0) !important; /* Color del texto */
+  padding-left: 16px !important; /* Padding base para todos los items */
+  min-height: 40px; /* Asegura que los elementos tengan un tamaño mínimo */
 }
 
 /* Efecto al pasar el mouse sobre los elementos del submenú */
@@ -52,13 +54,6 @@
 .ant-menu-item.ant-menu-item-selected {
   background-color: transparent !important; /* Anular el fondo predeterminado */
   color: inherit !important; /* Mantener el color del texto */
-}
-
-/* Estilo para aplicar padding a los elementos de carpeta */
-.ant-menu-item {
-  color: #1890ff !important;
-  font-weight: bold !important; 
-  padding-left: 16px !important; /* Padding base para todos los items */
 }
 
 /* Estilo para aplicar padding adicional basado en el nivel */

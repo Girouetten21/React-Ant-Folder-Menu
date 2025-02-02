@@ -1,0 +1,57 @@
+ .user-profile {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 20px 20px;
+ }
+  
+ .user-info {
+    margin-left: 10px; /* Espaciado a la izquierda del avatar */
+ }
+  
+ .user-name {
+    color:rgb(43, 43, 43);
+    margin: 0; /* Eliminar margen por defecto */
+    font-size: 1.5em; /* Tamaño de fuente para el nombre */
+ }
+  
+ .user-username {
+    color:rgb(119, 119, 119);
+    margin: 0; /* Eliminar margen por defecto */
+ }
+
+.categories-container {
+    padding: 10px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Color de fondo */
+  }
+  
+  .categories-title {
+    font-size: 1.5em; /* Tamaño de fuente para el título */
+    margin-bottom: 10px; /* Espaciado inferior */
+    color: #1a1a1a; /* Color del texto */
+  }
+  
+  .category-item {
+    display: flex; /* Usar flexbox para alinear ícono y texto */
+    align-items: center; /* Centrar verticalmente */
+    background-color: #e0e0e0; /* Color de fondo para cada categoría */
+    padding: 8px 12px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    margin-bottom: 5px; /* Espaciado inferior entre elementos */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+  }
+  
+  .category-item:hover {
+    background-color:rgb(63, 130, 255); /* Color de fondo al pasar el mouse */
+  }
+  
+  .category-icon {
+    color: rgb(63, 153, 255);
+    margin-right: 8px; /* Espaciado a la derecha del ícono */
+    font-size: 1.2em; /* Tamaño del ícono */
+  }
+  
+  .category-text {
+    font-size: 1em; /* Tamaño de fuente para el texto */
+    color: #333; /* Color del texto */
+  }
+
