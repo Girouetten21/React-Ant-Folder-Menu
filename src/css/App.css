@@ -41,26 +41,27 @@ h1 {
   color: #1a1a1a;
 }
 
+.app-container {
+  display: flex; /* Usar flexbox para dividir la pantalla */
+  height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+}
+
 .menu-container {
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; /* Color de fondo para el Menu */
   border-radius: 4px; /* Bordes redondeados */
   position: fixed; /* Fijar el menú en su posición */
   height: 100vh; /* Altura completa de la ventana */
   width: auto; /* Ancho fijo para el menú */
 }
 
-.app-container {
-  display: flex; /* Usar flexbox para dividir la pantalla */
-  height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
-}
-
 .content-container {
   margin-left: 260px; /* Espacio entre el menú y el contenido (ajustado para el ancho del menú) */
   flex: 1; /* Permite que el contenedor de contenido ocupe el espacio restante */
   padding: 20px; /* Espaciado interno */
-  background-color: rgb(224, 224, 224); /* Color de fondo para el contenido */
+  background-color: #f9f9f9; /* Color de fondo para el contenido */
   border: 1px solid #e8e8e8; /* Borde alrededor del contenido */
   border-radius: 4px; /* Bordes redondeados */
+  height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
   overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
 }
 
@@ -69,4 +70,15 @@ h1 {
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Crear columnas automáticas */
   gap: 20px 10px; /* Espaciado entre filas y columnas (20px entre filas, 10px entre columnas) */
   margin-top: 20px; /* Espaciado superior para separar del contenido anterior */
+}
+
+.skeleton-card {
+  width: 180px; /* Ancho de la tarjeta */
+  height: 180px; /* Altura de la tarjeta */
+  margin: 10px; /* Espaciado alrededor */
+  border: 1px solid rgb(199, 199, 199);
+  padding: 10px;
+  border-radius: 4px; /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra para simular una Card */
+  background-color: #f0f0f0; /* Color de fondo */
 }

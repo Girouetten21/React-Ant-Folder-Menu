@@ -35,4 +35,8 @@
     font-size: 18px; /* Tamaño de fuente del título */
     text-align: center; /* Centrar el texto */
     color: rgba(207, 207, 207, 0.89); /* Color del texto */
+    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+    overflow: hidden; /* Ocultar el texto que se desborda */
+    text-overflow: ellipsis; /* Agregar "..." al final si se desborda */
+    width: 100%; /* Asegúrate de que el contenedor tenga un ancho definido */
 }

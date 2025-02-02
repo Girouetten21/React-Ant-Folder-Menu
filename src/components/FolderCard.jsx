@@ -2,11 +2,12 @@
 import React from 'react';
 import { Card } from 'antd';
 import { FolderOutlined } from '@ant-design/icons'; // Importar el ícono de carpeta
-import '../css/CardFolder.css';
+import '../css/FolderCard.css';
 
-const CardFolder = ({ title, onClick }) => {
+const FolderCard = ({ title, onClick }) => {
+    
     return (
-        <Card className="card-folder" onClick={onClick}> {/* Agregar el manejador de clics aquí */}
+        <Card className="card-folder" onClick={onClick}>
             <div className="card-folder-background">
                 <FolderOutlined className="folder-icon" />
                 <h2 className="card-folder-title">{title}</h2>
@@ -15,4 +16,4 @@ const CardFolder = ({ title, onClick }) => {
     );
 };
 
-export default CardFolder;
+export default FolderCard;
