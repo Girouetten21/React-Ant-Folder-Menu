@@ -89,8 +89,10 @@ const App = () => {
         />
       </div>
       <div className="content-container">
-        <h1>Contenido</h1>
-        <p>{selectedContent}</p>
+        <div className="content-container-title">
+          <h1>Contenido</h1>
+          <p>{selectedContent}</p>
+          </div>
         <div className="card-container">
           {loading ? (
             // Mostrar Skeleton que se asemeje a una Card

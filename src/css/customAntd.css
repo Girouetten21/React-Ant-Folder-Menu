@@ -1,59 +1,39 @@
 /* custom.css */
 .ant-menu {
-  background-color: #f0f2f5 !important; /* Cambia el color de fondo del menú */
-  width: 275px !important; /* Establece un ancho fijo para el menú */
-  min-width: 275px !important; /* Establece un ancho mínimo para el menú */
+  background-color:rgba(27, 35, 61, 0); !important; /* Cambia el color de fondo del menú */
+  width: 290px !important; /* Establece un ancho fijo para el menú */
+  border-inline-end: none !important; /* Eliminar la sombra */
 }
 
 /* Estilo aplicado a la carpeta seleccionada actualmente */
+.anticon{
+  color: rgb(0, 162, 255) !important;
+}
+.ant-menu-submenu-inline{
+  margin-left: 2px !important;
+}
+
+.selected-folder .ant-menu-submenu-title{
+  color: rgba(207, 207, 207, 0.89) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
+}
+
+.selected-folder .ant-menu-title-content{
+  color: rgba(207, 207, 207, 0.89) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
+}
+
 .selected-folder {
-  background-color: rgb(255, 60, 0) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
-}
-
-/* Estilo para el título de las carpetas principales */
-.ant-menu-submenu-title {
-  font-size: 1.2em; /* Tamaño de fuente para el título */
-  color: rgb(0, 0, 0) !important; /* Color del texto */
-  transition: background-color 0.3s !important; /* Transición suave para el fondo */
-  min-height: 40px; /* Asegura que el título tenga un tamaño mínimo */
-}
-
-.ant-menu-title-content{
-  padding-left: 0px !important; /* Padding base para todos los items */
-}
-
-/* Efecto al pasar el mouse sobre el título */
-.ant-menu-submenu-title:hover {
-  background-color: rgba(0, 132, 255, 0.1) !important; /* Fondo suave al pasar el mouse */
-  border-radius: 4px !important; /* Bordes redondeados al pasar el mouse */
-}
-
-.ant-menu-submenu {
-  width: 270px !important; /* Establece un ancho fijo para el menú */
-  min-width: 270px !important; /* Establece un ancho mínimo para el menú */
-  background-color: rgb(30, 255, 0) !important; /* Color de fondo del submenú */
-}
-
-/* Estilo para los elementos del submenú */
-.ant-menu-item {
-  font-size: 1.2em; /* Tamaño de fuente para el título */
-  background-color: rgb(0, 132, 255) !important; /* Color de fondo de los elementos del menú */
-  padding: 8px 12px !important; /* Espaciado interno */
-  transition: background-color 0.3s !important; /* Transición suave para el fondo */
-  color: rgb(0, 0, 0) !important; /* Color del texto */
-  padding-left: 16px !important; /* Padding base para todos los items */
-  min-height: 40px; /* Asegura que los elementos tengan un tamaño mínimo */
+  background-color: rgba(53, 57, 61, 0.9) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
 }
 
 /* Efecto al pasar el mouse sobre los elementos del submenú */
 .ant-menu-item:hover {
-  background-color: rgba(24, 144, 255, 0.1) !important; /* Fondo suave al pasar el mouse */
+  color: rgba(207, 207, 207, 0.89) !important;
+  background-color: rgba(51, 55, 59, 0.9) !important; /* Fondo suave al pasar el mouse */
 }
 
-/* Anular el estilo de ant-menu-item-selected */
-.ant-menu-item.ant-menu-item-selected {
-  background-color: transparent !important; /* Anular el fondo predeterminado */
-  color: inherit !important; /* Mantener el color del texto */
+.ant-menu-submenu-title:hover{
+  color: rgba(207, 207, 207, 0.89) !important;
+  background-color: rgba(51, 55, 59, 0.9) !important;
 }
 
 /* Estilo para aplicar padding adicional basado en el nivel */
@@ -62,7 +42,7 @@
 }
 
 .ant-menu-item.level-2 {
-  padding-left: 48px !important; /* Padding para el segundo nivel */
+  padding-left: 50px !important; /* Padding para el segundo nivel */
 }
 
 .ant-menu-item.level-3 {

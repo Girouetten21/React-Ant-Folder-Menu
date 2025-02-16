@@ -5,6 +5,7 @@ import UserProfile from './UserProfile.jsx';
 import { FolderOutlined, FolderOpenOutlined } from '@ant-design/icons'; // Importar íconos necesarios
 import '../css/Menu.css'; // Asegúrate de que la ruta sea correcta
 import '../css/customAntd.css'; // Asegúrate de que la ruta sea correcta
+import profileImage from '../assets/profile_user.jpg';
 
 const Menu = ({ folders, onFolderSelect, currentFolder, onCategorySelect }) => {
   const selectedKeys = [currentFolder.id];
@@ -69,8 +70,9 @@ const Menu = ({ folders, onFolderSelect, currentFolder, onCategorySelect }) => {
   };
 
   return (
-    <div className='menu-container'>
-        <UserProfile name="John Doe" username="johndoe" imageUrl="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&ixid=M3w2MTg1MTN8MHwxfHNlYXJjaHwxfHx1c2VyLWF2YXRhcnxlbnwwfDJ8fHwxNzM4MDI5OTk5fDA&ixlib=rb-4.0.3&q=80&w=150&h=150"/>
+    <div>
+        <UserProfile name="Marcos Pereira" username="girouetten21" imageUrl={profileImage}/>
+        <h3 className="menu-title">Menu</h3>
       <AntMenu
         mode="inline"
         style={{ width: 256 }}
@@ -99,7 +101,7 @@ const Menu = ({ folders, onFolderSelect, currentFolder, onCategorySelect }) => {
         )}
       </AntMenu>
       <div className="categories-container">
-        <h3 className="categories-title">Categorías</h3>
+        <h3 className="categorie-title">Categorías</h3>
         <div>
           {categories.map(category => (
             <div 

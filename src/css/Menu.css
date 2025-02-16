@@ -1,57 +1,100 @@
- .user-profile {
-    display: flex;
-    align-items: center;
-    margin: 20px 0 20px 20px;
- }
-  
- .user-info {
-    margin-left: 10px; /* Espaciado a la izquierda del avatar */
- }
-  
- .user-name {
-    color:rgb(43, 43, 43);
-    margin: 0; /* Eliminar margen por defecto */
-    font-size: 1.5em; /* Tamaño de fuente para el nombre */
- }
-  
- .user-username {
-    color:rgb(119, 119, 119);
-    margin: 0; /* Eliminar margen por defecto */
- }
+.user-profile {
+  position: fixed; /* Mantiene el perfil en su posición hasta que se desplace */
+  top: 18px; /* Distancia desde la parte superior de su contenedor */
+  display: flex;
+  width: 270px;
+  align-items: center; /* Alinea los elementos en el centro verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  border-top-left-radius: 10px; /* Esquina redondeada superior izquierda */
+  margin-top: 10px; /* Espaciado superior */
+  min-height: 114px; /* Altura mínima para hacer el contenedor más grande hacia abajo */
+  padding-left: 10px; /* Espaciado interno a la izquierda */
+  padding-right: 20px; /* Espaciado interno a la derecha (opcional) */
+  background: rgb(0, 60, 255); /* Color de fondo de la carpeta */
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.user-info {
+  margin-left: 10px; /* Espaciado a la izquierda del avatar */
+}
+
+.user-name {
+  color: rgb(80, 246, 255); /* Color del nombre */
+  margin: 0; /* Eliminar margen por defecto */
+  font-size: 1.5em; /* Tamaño de fuente para el nombre */
+}
+
+.user-username {
+  color: rgb(197, 197, 197); /* Color del nombre de usuario */
+  margin: 0; /* Eliminar margen por defecto */
+}
 
 .categories-container {
-    padding: 10px; /* Espaciado interno */
-    background-color: #f9f9f9; /* Color de fondo */
+    width: 280px; /* Establece un ancho fijo para el menú */
+    min-width: 280px; /* Establece un ancho mínimo para el menú */
+    padding: 5px 6px;
+    background-color:rgba(155, 178, 255, 0); /* Color de fondo */
   }
   
-  .categories-title {
+  .menu-title {
     font-size: 1.5em; /* Tamaño de fuente para el título */
     margin-bottom: 10px; /* Espaciado inferior */
     color: #1a1a1a; /* Color del texto */
+    padding-top: 100px;
+    padding-left: 5px;
+  }
+  
+  .categorie-title {
+    font-size: 1.5em; /* Tamaño de fuente para el título */
+    margin-bottom: 10px; /* Espaciado inferior */
+    color: #1a1a1a; /* Color del texto */
+    padding-top: 10px;
   }
   
   .category-item {
     display: flex; /* Usar flexbox para alinear ícono y texto */
     align-items: center; /* Centrar verticalmente */
-    background-color: #e0e0e0; /* Color de fondo para cada categoría */
-    padding: 8px 12px; /* Espaciado interno */
+    background-color:rgb(235, 235, 235); /* Color de fondo para cada categoría */
+    padding: 9px 16px; /* Espaciado interno */
     border-radius: 4px; /* Bordes redondeados */
-    margin-bottom: 5px; /* Espaciado inferior entre elementos */
+    margin-bottom: 10px; /* Espaciado inferior entre elementos */
     transition: background-color 0.3s; /* Transición suave para el hover */
   }
   
   .category-item:hover {
-    background-color:rgb(63, 130, 255); /* Color de fondo al pasar el mouse */
+    cursor: pointer;
+    background-color: rgba(51, 55, 59, 0.9);
+  }
+
+  .category-item:hover .category-text{
+    color: rgba(207, 207, 207, 0.89);
   }
   
   .category-icon {
     color: rgb(63, 153, 255);
     margin-right: 8px; /* Espaciado a la derecha del ícono */
-    font-size: 1.2em; /* Tamaño del ícono */
+    font-size: 0.9em; /* Tamaño del ícono */
   }
   
   .category-text {
-    font-size: 1em; /* Tamaño de fuente para el texto */
+    font-size: 0.85em; /* Tamaño de fuente para el texto */
     color: #333; /* Color del texto */
   }
 
+/* Estilos para la barra de desplazamiento en el menú */
+.menu-container::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.menu-container::-webkit-scrollbar-track {
+  background: transparent; /* Fondo de la pista de la barra de desplazamiento */
+}
+
+.menu-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5); /* Color del "pulgar" de la barra de desplazamiento */
+  border-radius: 10px; /* Bordes redondeados para el "pulgar" */
+}
+
+.menu-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.7); /* Color del "pulgar" al pasar el mouse */
+}

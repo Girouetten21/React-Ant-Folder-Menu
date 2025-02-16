@@ -12,7 +12,6 @@
 
 .card:hover {
     transform: scale(1.05); /* Escalar la tarjeta al pasar el cursor */
-    background-color: rgb(238, 238, 238); /* Color de fondo al pasar el cursor */
 }
 
 .card-background {
@@ -58,7 +57,7 @@
     height: 180px; /* Altura del contenedor */
     position: relative;
     overflow: hidden;
-    background-color: rgba(48, 53, 58, 0.7);
+    background-color: rgb(235, 235, 235);
     border: 1px solid rgb(158, 158, 158);
     cursor: pointer; /* Cambiar el cursor a puntero */
     transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave para el escalado y el color de fondo */
@@ -88,11 +87,15 @@
 .card-folder-title {
     font-size: 18px; /* Tamaño de fuente del título */
     text-align: center; /* Centrar el texto */
-    color: rgba(207, 207, 207, 0.89); /* Color del texto */
+    color: rgba(51, 55, 59, 0.9); /* Color del texto */
     white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
     overflow: hidden; /* Ocultar el texto que se desborda */
     text-overflow: ellipsis; /* Agregar "..." al final si se desborda */
     width: 100%; /* Asegúrate de que el contenedor tenga un ancho definido */
+}
+
+.card-folder:hover .card-folder-title {
+    color: rgba(207, 207, 207, 0.89);
 }
 
 .skeleton-card {

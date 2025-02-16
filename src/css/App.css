@@ -38,25 +38,51 @@ h1 {
 /* App.css */
 .app-container {
   display: flex; /* Usar flexbox para dividir la pantalla */
-  height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
 }
 
 .menu-container {
-  background-color:rgb(0, 255, 234); /* Color de fondo para el Menu */
-  height: 100vh; /* Altura completa de la ventana */
-  width: 280px; /* Ancho fijo para el menú */
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: linear-gradient(to bottom, rgba(243, 243, 243, 0) 10%, rgb(200, 213, 255) 10%); /* Degradado de blanco (10%) a azul (90%) */
+  width: 300px; /* Ancho fijo para el menú */
   position: fixed; /* Fijar el menú en su posición */
   overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
+  overflow-x: hidden; /* Ocultar el desbordamiento horizontal */
+  box-sizing: border-box; /* Incluir padding y borde en el ancho total */
+  margin-left: 60px; /* Separador de 20px a la izquierda */
+  height: calc(100vh - 57px); /* Establecer una altura máxima */
+  margin-top: 20px;
 }
 
 .content-container {
-  background-color:rgb(156, 156, 156); /* Color de fondo para el contenido */
-  height: 100vh; /* Altura completa de la ventana */
-  margin-left: 280px; /* Espacio entre el menú y el contenido (ajustado para el ancho del menú) */
+  height: calc(95vh - 20px); /* Altura total del contenedor */
+  border-bottom-right-radius: 10px; /* Esquina redondeada superior izquierda */
+  background: linear-gradient(to bottom, rgba(243, 243, 243, 0) 10%,rgb(200, 213, 255) 10%); /* Degradado de blanco (10%) a azul (90%) */
+  margin-left: 360px; /* Espacio entre el menú y el contenido (ancho del menú + separador de 20px) */
+  margin-right: 50px; /* Separador de 20px a la derecha */
   overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
   flex: 1; /* Permite que el contenedor de contenido ocupe el espacio restante */
   padding: 20px; /* Espaciado interno */
   border: 0px solid #e8e8e8; /* Borde alrededor del contenido */
+}
+
+.content-container-title {
+  padding: 3px;
+  padding-left: 20px;
+  border-top-right-radius: 10px; /* Esquina redondeada superior derecha */
+  background:rgb(0, 60, 255); /* Mismo color de fondo que el contenedor */
+  width: calc(100% - 350px); /* Reduce el ancho total del contenedor */
+  margin-left: -20px; /* Mueve el contenedor hacia la izquierda */
+}
+
+.content-container-title h1 {
+  color: rgb(80, 246, 255);
+  margin-top: 10px; /* Ajusta el margen superior para mover el h1 hacia abajo */
+}
+
+.content-container-title p {
+  color: rgb(197, 197, 197);
+  margin-top: 0px; /* Ajusta el margen superior para mover el p hacia arriba */
 }
 
 .card-container {
@@ -64,26 +90,6 @@ h1 {
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Crear columnas automáticas */
   gap: 20px 10px; /* Espaciado entre filas y columnas (20px entre filas, 10px entre columnas) */
   margin-top: 20px; /* Espaciado superior para separar del contenido anterior */
-}
-
-
-
-/* Estilos para la barra de desplazamiento en el menú */
-.menu-container::-webkit-scrollbar {
-  width: 8px; /* Ancho de la barra de desplazamiento */
-}
-
-.menu-container::-webkit-scrollbar-track {
-  background: transparent; /* Fondo de la pista de la barra de desplazamiento */
-}
-
-.menu-container::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.5); /* Color del "pulgar" de la barra de desplazamiento */
-  border-radius: 10px; /* Bordes redondeados para el "pulgar" */
-}
-
-.menu-container::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.7); /* Color del "pulgar" al pasar el mouse */
 }
 
 /* Estilos para la barra de desplazamiento en el contenido */
