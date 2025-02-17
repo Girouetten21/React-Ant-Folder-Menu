@@ -1,6 +1,5 @@
-/* custom.css */
 .ant-menu {
-  background-color:rgba(27, 35, 61, 0); !important; /* Cambia el color de fondo del menú */
+  background-color: transparent !important; /* Cambia el color de fondo del menú */
   width: 290px !important; /* Establece un ancho fijo para el menú */
   border-inline-end: none !important; /* Eliminar la sombra */
 }
@@ -14,11 +13,11 @@
 }
 
 .selected-folder .ant-menu-submenu-title{
-  color: rgba(207, 207, 207, 0.89) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
+  color: rgb(207, 207, 207) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
 }
 
 .selected-folder .ant-menu-title-content{
-  color: rgba(207, 207, 207, 0.89) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
+  color: rgb(207, 207, 207) !important; /* Cambia el color de fondo de la subcarpeta seleccionada */
 }
 
 .selected-folder {
