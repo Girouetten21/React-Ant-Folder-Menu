@@ -3,7 +3,7 @@ import React from 'react';
 import { Card } from 'antd';
 import '../css/Card.css';
 
-const CustomCard = ({ backgroundColor, title, content, content2, click, style }) => {
+const CustomCard = ({ backgroundColor, title, content, category, click, style }) => {
    
     // Función para manejar el clic en la tarjeta
     const handleCardClick = () => {
@@ -22,8 +22,8 @@ const CustomCard = ({ backgroundColor, title, content, content2, click, style })
         <Card className="card" bodyStyle={{ padding: 0 }} onClick={handleCardClick} >
             <div className="card-background" style={{ backgroundColor: backgroundColor }}>
             <h2 className="card-title">{truncateText(title, 14)}</h2> {/* Título truncado a 10 caracteres */}
-            <p className="content-card">{truncateText(content, 21)}</p> {/* Primer texto truncado a 20 caracteres */}
-            <p className="content-card-2">{truncateText(content2, 28)}</p> {/* Segundo texto truncado a 25 caracteres */}
+            <p className="card-content">{truncateText(content, 20)}</p> {/* Primer texto truncado a 20 caracteres */}
+            <p className="card-category">{truncateText(category, 25)}</p> {/* Segundo texto truncado a 25 caracteres */}
             </div>
         </Card>
     );

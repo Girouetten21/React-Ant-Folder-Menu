@@ -3,7 +3,7 @@ import { Skeleton } from 'antd';
 import Menu from './Menu';
 import Card from './Card';
 import FolderCard from './FolderCard';
-import DataMenu from '../data/DataMenu';
+import DataMenu from '../data/DataMenu.jsx';
 import '../css/App.css';
 import '../css/customAntd.css';
 
@@ -42,7 +42,7 @@ const App = () => {
           },
           card: () => {
             setDisplayedItems([currentFolder]);
-            setSelectedContent(currentFolder.content || currentFolder.content2 || '');
+            setSelectedContent(currentFolder.content || currentFolder.category || '');
           },
         };
 
@@ -55,6 +55,16 @@ const App = () => {
   const handleSelect = (item) => {
     // Aplicar el nuevo elemento seleccionado
     setCurrentFolder(item);
+  };
+
+  const handleCategorySelect = (category) => {
+    // Filtrar los elementos según la categoría seleccionada
+    const filteredItems = DataMenu.flatMap(folder => 
+      folder.subfolders ? folder.subfolders.filter(item => item.category === category.name) : []
+    );
+    setDisplayedItems(filteredItems); // Actualizar el estado de displayedItems
+    setSelectedContent(`Categoría seleccionada: ${category.name}`); // Establecer el contenido seleccionado
+    setCurrentFolder(0); // Deseleccionar cualquier carpeta previamente seleccionada
   };
 
   // Función recursiva para calcular el nivel de anidación
@@ -75,11 +85,14 @@ const App = () => {
           folders={DataMenu} // Usar el contenido importado
           onFolderSelect={handleSelect} // Usar el manejador unificado
           currentFolder={currentFolder} // Pasar el objeto de la carpeta actual
+          onCategorySelect={handleCategorySelect} // Pasar el manejador de selección de categorías
         />
       </div>
       <div className="content-container">
-        <h1>Contenido</h1>
-        <p>{selectedContent}</p>
+        <div className="content-container-title">
+          <h1>Contenido</h1>
+          <p>{selectedContent}</p>
+          </div>
         <div className="card-container">
           {loading ? (
             // Mostrar Skeleton que se asemeje a una Card
@@ -111,23 +124,23 @@ const App = () => {
               } else if (item.type === 'card') {
                 return (
                   <Card
-                    key={item.id}
-                    title={item.name}
-                    content={item.content}
-                    content2={item.content2}
-                    backgroundColor={item.backgroundColor}
-                    click={item.click}
-                    style={{ paddingLeft }}
-                  />
-                );
-              }
-              return null;
-            })
-          )}
-        </div>
+                  key={item.id}
+                  title={item.name}
+                  content={item.content}
+                  category={item.category}
+                  backgroundColor={item.backgroundColor}
+                  click={item.click}
+                  style={{ paddingLeft }}
+                />
+              );
+            }
+            return null;
+          })
+        )}
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default App;

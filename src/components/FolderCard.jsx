@@ -2,7 +2,7 @@
 import React from 'react';
 import { Card } from 'antd';
 import { FolderOutlined } from '@ant-design/icons'; // Importar el ícono de carpeta
-import '../css/FolderCard.css';
+import '../css/Card.css';
 
 const FolderCard = ({ title, onClick }) => {
     
