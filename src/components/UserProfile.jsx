@@ -1,7 +1,6 @@
-// UserProfile.jsx
 import React from 'react';
 import { Avatar } from 'antd'; // Importar el componente Avatar de Ant Design
-import '../css/App.css'; // Asegúrate de que la ruta sea correcta
+import '../css/UserProfile.css'; // Asegúrate de que la ruta sea correcta
 
 const UserProfile = ({ name, username, imageUrl }) => {
   return (

@@ -1,31 +1,27 @@
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 
   overflow: hidden; /* Evitar la barra de desplazamiento en la página principal */
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-p {
-  color: rgb(56, 56, 56);
+  background: linear-gradient(-45deg,rgb(46, 168, 199),rgb(6, 70, 153),rgb(91, 230, 255),rgb(49, 236, 193));
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	height: 100vh;
 }
 
 h1 {
@@ -35,57 +31,85 @@ h1 {
   margin: 2px;
 }
 
+span{
+  color: rgb(243, 243, 243);
+}
+
 /* App.css */
 .app-container {
   display: flex; /* Usar flexbox para dividir la pantalla */
 }
 
+.bar-container {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: fixed; /* Fijar la barra en la parte superior */
+  top: 66px; /* Ajusta esta propiedad para bajar la barra desde la parte superior */
+  left: 67px; /* Ajusta esta propiedad para mover la barra hacia la derecha */
+  width: calc(100% - 400px); /* Ancho igual a la suma de los dos contenedores menos el margen izquierdo */
+  height: 110px; /* Altura de la barra */
+  background-color: rgb(56, 84, 126); /* Color de fondo de la barra */
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  display: flex; /* Usar flexbox para alinear los elementos dentro de la barra */
+  align-items: center; /* Centrar verticalmente los elementos */
+  padding: 0 20px; /* Espaciado horizontal */
+}
+
+@media (min-width: 1200px) { /* Ajusta el valor según tus necesidades */
+  .bar-container {
+    width: 40%; /* Ancho para pantallas grandes */
+  }
+}
+
 .menu-container {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  background: linear-gradient(to bottom, rgba(243, 243, 243, 0) 10%, rgb(200, 213, 255) 10%); /* Degradado de blanco (10%) a azul (90%) */
+  background: rgb(56, 84, 126);
   width: 300px; /* Ancho fijo para el menú */
   position: fixed; /* Fijar el menú en su posición */
   overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
   overflow-x: hidden; /* Ocultar el desbordamiento horizontal */
   box-sizing: border-box; /* Incluir padding y borde en el ancho total */
   margin-left: 60px; /* Separador de 20px a la izquierda */
-  height: calc(100vh - 57px); /* Establecer una altura máxima */
-  margin-top: 20px;
+  margin-top: 60px; /* Separación desde la barra */
+  height: calc(94.9vh - 57px); /* Ajustar la altura para que no se superponga con la barra */
 }
 
-.content-container {
-  height: calc(95vh - 20px); /* Altura total del contenedor */
-  border-bottom-right-radius: 10px; /* Esquina redondeada superior izquierda */
-  background: linear-gradient(to bottom, rgba(243, 243, 243, 0) 10%,rgb(200, 213, 255) 10%); /* Degradado de blanco (10%) a azul (90%) */
-  margin-left: 360px; /* Espacio entre el menú y el contenido (ancho del menú + separador de 20px) */
-  margin-right: 50px; /* Separador de 20px a la derecha */
-  overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
-  flex: 1; /* Permite que el contenedor de contenido ocupe el espacio restante */
-  padding: 20px; /* Espaciado interno */
-  border: 0px solid #e8e8e8; /* Borde alrededor del contenido */
+.user-container {
+  width: 300px; /* Ancho fijo para el menú */
+  margin-right: 20px; /* Espacio entre el user-container y el content-container-title */
 }
 
 .content-container-title {
-  padding: 3px;
-  padding-left: 20px;
-  border-top-right-radius: 10px; /* Esquina redondeada superior derecha */
-  background:rgb(0, 60, 255); /* Mismo color de fondo que el contenedor */
-  width: calc(100% - 350px); /* Reduce el ancho total del contenedor */
-  margin-left: -20px; /* Mueve el contenedor hacia la izquierda */
+  padding: 5px;
 }
 
-.content-container-title h1 {
+ .content-container-title h1 {
   color: rgb(80, 246, 255);
   margin-top: 10px; /* Ajusta el margen superior para mover el h1 hacia abajo */
 }
 
-.content-container-title p {
-  color: rgb(197, 197, 197);
+ .content-container-title p {
+  padding-left: 5px;
+  color: rgb(221, 221, 221);
   margin-top: 0px; /* Ajusta el margen superior para mover el p hacia arriba */
 }
 
+.content-container {
+  height: calc(87.1vh - 57px); /* Altura total del contenedor */
+  border-bottom-right-radius: 10px; /* Esquina redondeada inferior derecha */
+  border-top-right-radius: 10px; /* Esquina redondeada superior derecha */
+  background: linear-gradient(135deg, rgb(56, 84, 126) 50%, rgb(6, 70, 153) 100%);
+  margin-left: 360px; /* Espacio entre el menú y el contenido (ancho del menú + separador de 20px) */
+  margin-right: 50px; /* Separador de 20px a la derecha */
+  margin-top: 150px; /* Separación desde la barra */
+  overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
+  flex: 1; /* Permite que el contenedor de contenido ocupe el espacio restante */
+}
+
 .card-container {
+  padding: 20px; /* Espaciado interno */
+  padding-left: 40px;
   display: grid; /* Usar grid para el diseño */
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Crear columnas automáticas */
   gap: 20px 10px; /* Espaciado entre filas y columnas (20px entre filas, 10px entre columnas) */

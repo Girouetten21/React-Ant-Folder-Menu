@@ -1,4 +1,3 @@
-// CardFolder.jsx
 import React from 'react';
 import { Card } from 'antd';
 import { FolderOutlined } from '@ant-design/icons'; // Importar el ícono de carpeta

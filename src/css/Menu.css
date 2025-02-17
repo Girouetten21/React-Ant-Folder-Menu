@@ -1,39 +1,8 @@
-.user-profile {
-  position: fixed; /* Mantiene el perfil en su posición hasta que se desplace */
-  top: 18px; /* Distancia desde la parte superior de su contenedor */
-  display: flex;
-  width: 270px;
-  align-items: center; /* Alinea los elementos en el centro verticalmente */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  border-top-left-radius: 10px; /* Esquina redondeada superior izquierda */
-  margin-top: 10px; /* Espaciado superior */
-  min-height: 114px; /* Altura mínima para hacer el contenedor más grande hacia abajo */
-  padding-left: 10px; /* Espaciado interno a la izquierda */
-  padding-right: 20px; /* Espaciado interno a la derecha (opcional) */
-  background: rgb(0, 60, 255); /* Color de fondo de la carpeta */
-  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
-}
-
-.user-info {
-  margin-left: 10px; /* Espaciado a la izquierda del avatar */
-}
-
-.user-name {
-  color: rgb(80, 246, 255); /* Color del nombre */
-  margin: 0; /* Eliminar margen por defecto */
-  font-size: 1.5em; /* Tamaño de fuente para el nombre */
-}
-
-.user-username {
-  color: rgb(197, 197, 197); /* Color del nombre de usuario */
-  margin: 0; /* Eliminar margen por defecto */
-}
-
 .categories-container {
     width: 280px; /* Establece un ancho fijo para el menú */
     min-width: 280px; /* Establece un ancho mínimo para el menú */
     padding: 5px 6px;
-    background-color:rgba(155, 178, 255, 0); /* Color de fondo */
+    background-color: transparent /* Color de fondo */
   }
   
   .menu-title {
@@ -41,14 +10,14 @@
     margin-bottom: 10px; /* Espaciado inferior */
     color: #1a1a1a; /* Color del texto */
     padding-top: 100px;
-    padding-left: 5px;
+    padding-left: 10px;
   }
   
   .categorie-title {
     font-size: 1.5em; /* Tamaño de fuente para el título */
     margin-bottom: 10px; /* Espaciado inferior */
     color: #1a1a1a; /* Color del texto */
-    padding-top: 10px;
+    padding-left: 5px;
   }
   
   .category-item {
@@ -71,7 +40,7 @@
   }
   
   .category-icon {
-    color: rgb(63, 153, 255);
+    color: rgb(0, 162, 255);
     margin-right: 8px; /* Espaciado a la derecha del ícono */
     font-size: 0.9em; /* Tamaño del ícono */
   }

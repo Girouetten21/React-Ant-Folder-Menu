@@ -1,0 +1,18 @@
+.user-profile {
+    display: flex;
+  }
+  
+  .user-info {
+    margin-left: 10px; /* Espaciado a la izquierda del avatar */
+  }
+  
+  .user-name {
+    color: rgb(80, 246, 255); /* Color del nombre */
+    margin: 0; /* Eliminar margen por defecto */
+    font-size: 1.5em; /* Tamaño de fuente para el nombre */
+  }
+  
+  .user-username {
+    color: rgb(221, 221, 221); /* Color del nombre de usuario */
+    margin: 0; /* Eliminar margen por defecto */
+  }
